@@ -28,4 +28,52 @@ default:
 }
 
 
+//: **Dictionaryのfor in**
+let foods = [
+    "fruiets"    :   ["apple","banana","remon"],
+    "vegitables" :   ["poteto","onion","tomato"],
+    "meet"       :   ["chicken","pork","beef"]
+]
+
+for (kind,items) in foods {
+    print(kind)
+    for item in items {
+        print(item)
+    }
+}
+
+// for (key,values) in dictionaryValues
+// という構文を使うと、key,valuesを同時にfor文の中で回せる
+// 繰り返しの順番はアルファベット順
+//: **while文**
+var days = 7
+while days < 30 {
+    days += 5
+}
+print(days)
+
+
+//: **repeat-while文**
+var weeks = 7
+
+repeat{
+    weeks += 5
+} while weeks < 3
+
+print(weeks)
+
+// 最低でも必ず一回は実行させたい処理の場合、この表現が使えます。
+
+
+
+
+
+
+
+
+
+
+
+
+
 //: [Next](@next)
