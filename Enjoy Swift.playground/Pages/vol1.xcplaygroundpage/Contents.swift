@@ -131,7 +131,7 @@ if let actualScore = optionalScore {
     resultMessage = "試験未受験です😤"
 }
 
-// 条件式内で宣言された actualScoreは条件式内でのみ利用可能
+// 条件式内で宣言された actualScoreは条件式のスコープ内でのみ利用可能
 
 print(resultMessage)
 //: [Next](@next)
