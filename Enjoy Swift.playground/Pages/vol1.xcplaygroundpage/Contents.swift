@@ -1,18 +1,20 @@
 //: **Hello,world**
-print("Hello,world")
+print("Hello,world") //実行結果はPlaygroundの右側に表示されます → → →
+// Tips : 実行結果の右にある四角い枠を押すと、結果をソースコード内に表示することができます。
 //: **変数と定数**
+// 変数
 var message = "iOSアプリを作りたい"
 print(message)
 
+// 定数
 let companyName = "Apple"
 print(companyName)
 //: **型推論**
-// 変数/定数の型は、初期値が明らかな場合に省略することができる。
+// 変数・定数の型は、初期値が明らかな場合に省略することができる。
 var lastName: String = "kimura"
 var firstName = "takafumi"
 
 print(String(describing: type(of: lastName)))
-
 print(String(describing: type(of: firstName)))
 //: **型情報の取得方法**
 print(String(describing: type(of: firstName)))
@@ -33,7 +35,7 @@ print("私の年齢は \(age)才です。")
 //: **改行を含む文字列**
 // このSyntaxはSwift4以降で対応しています。
 // エラーが発生する場合、Xcode9以降を入手し、本ファイルを開いてください。
-// 参考 => https://developer.apple.com/xcode/
+// Xcode9のダウンロードはこちらから => https://developer.apple.com/xcode/
 
 var longTextMessage = """
 1行目
@@ -42,7 +44,6 @@ var longTextMessage = """
 """
 
 print(longTextMessage)
-
 print(String(describing: type(of: longTextMessage)))
 // 型はStringのまま
 //: **Array**
