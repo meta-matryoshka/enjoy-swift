@@ -126,10 +126,12 @@ if let actualScore = optionalScore {
         resultMessage = "不合格です😢"
     }
     
+    
 }else{
     resultMessage = "試験未受験です😤"
 }
 
-print(resultMessage)
+// 条件式内で宣言された actualScoreは条件式内でのみ利用可能
 
+print(resultMessage)
 //: [Next](@next)
