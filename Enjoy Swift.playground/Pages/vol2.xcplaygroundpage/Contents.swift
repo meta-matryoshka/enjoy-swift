@@ -1,4 +1,5 @@
 //: [Previous](@previous)
+
 //: **Optionalを判定する(??)**
 var nickName: String? = "Taka"
 let fullName = "takafumi kimura"
@@ -66,13 +67,25 @@ print(weeks)
 
 
 
+//: **範囲指定 "..<" , "..."**
 
+var total = 0
 
+for num in 1..<4 {
+    total += num
+}
 
+print(total)
+// 4は含まない
 
+total = 0
 
+for num in 1...4 {
+    total += num
+}
 
-
+print(total)
+// 4を含む
 
 
 
