@@ -1,4 +1,5 @@
 //: [Previous](@previous)
+
 //: **関数**
 func fullName(firstName: String, lastName: String) -> String{
     return "\(lastName) \(firstName)"
@@ -32,21 +33,34 @@ displayMessage(sales: 200, in: 8)
 // * 元名ラベル→関数の処理の中でのみ利用
 
 
+// 関数の返値として複数の値を返したい場合は、tupleを使える
+// tupleの例
+let HTTP404 = (code: 404,description: "Not Found")
+print(HTTP404.code)
+print(HTTP404.description)
 
+// tupleを返す関数
+func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
+    var min = scores[0]
+    var max = scores[0]
+    var sum = 0
+    
+    for score in scores {
+        if score > max {
+            max = score
+        } else if score < min {
+            min = score
+        }
+        sum += score
+    }
+    
+    return (min, max, sum)
+}
+let statistics = calculateStatistics(scores: [1, 9, 4, 7])
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(statistics.min)
+print(statistics.max)
+print(statistics.sum)
+print(statistics)
 
 //: [Next](@next)
