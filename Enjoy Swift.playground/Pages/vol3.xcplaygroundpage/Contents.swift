@@ -63,4 +63,60 @@ print(statistics.max)
 print(statistics.sum)
 print(statistics)
 
+
+// 関数を関数の返り値として記述する
+func makeIncrementer() -> ((Int) -> Int) {
+    func addOne(number: Int) -> Int {
+        return 1 + number
+    }
+    return addOne
+}
+var increment = makeIncrementer()
+increment(10)
+
+
+//関数の引数に関数を入れる
+func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {
+    for item in list {
+        if condition(item) {
+            return true
+        }
+    }
+    return false
+}
+
+
+func lessThanTen(number: Int) -> Bool {
+    return number < 10
+}
+
+var numbers = [20, 19, 7, 12]
+
+hasAnyMatches(list: numbers, condition: lessThanTen)
+
+
+
+//関数はクロージャの一種です。(関数とは、後から呼ばれるコードの塊)
+//クロージャは全体を{}で囲むことで、名前なしで作成することができます。
+//けれど、そうするとクロージャの"(引数) -> 返り値" と本体を区切る記号{}が被ってしまいます。
+//そこで、このような場合は区切り文字として"in"を使います。
+
+numbers.map({ (number: Int) -> Int in
+    let result = 3 * number
+    return result
+})
+
+
+//クロージャのタイプが既にわかっている場合は、引数と返り値の宣言を省略することができます。
+//以下のように１行で記述が済む場合は return も省略可能。
+let mappedNumbers = numbers.map({ number in 3 * number })
+
+
+// パラメータに対して、名前を使わずに番号でアクセスすることも可能です。
+// クロージャが唯一の引数である場合は()を省略することも可能です。
+
+let sortedNumbers = numbers.sorted { $0 < $1 }
+print(sortedNumbers)
+
+// TODO クロージャの説明をもう少し深く
 //: [Next](@next)
