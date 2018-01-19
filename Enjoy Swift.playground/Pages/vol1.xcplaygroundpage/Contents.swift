@@ -94,7 +94,7 @@ print(resultMessage)
 
 
 //: **Optionals**
-// nil値が含まれる可能性がある値は、optionalsとして扱われる。
+// nil値が含まれる可能性がある値は、optionalsとして扱うことができる。
 // 値の型の後ろに(?)マークをつけることで、宣言できる。
 
 var optionalScore: Int?
