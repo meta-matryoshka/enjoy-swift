@@ -63,6 +63,15 @@ enum Status: String {
 
 let create = Status.approved.rawValue
 
+// Rank(rawValue: n)でenumのインスタンスを作成できる
+// 該当するrawValueがなければnilとなるため、これはoptionalな値
+var three = Rank(rawValue: 3)
+var thirty = Rank(rawValue: 30)
 
+// "var three"はoptionalなので(enumのインスタンス生成はnilとなる可能性がある)、以下のようにunwrappedする
+if let convertedRank = three {
+    let threeDescription = convertedRank.simpleDescription()
+    print(threeDescription)
+}
 
 //: [Next](@next)
