@@ -61,7 +61,7 @@ enum Status: String {
     case create,review,approved,closed
 }
 
-let create = Status.approved.rawValue
+let approved = Status.approved.rawValue
 
 // Rank(rawValue: n)でenumのインスタンスを作成できる
 // 該当するrawValueがなければnilとなるため、これはoptionalな値
@@ -73,5 +73,38 @@ if let convertedRank = three {
     let threeDescription = convertedRank.simpleDescription()
     print(threeDescription)
 }
+
+// 意味のあるrawValueを与える必要がないときには、rawValueは提供する必要がない
+enum Suit {
+    case spades, hearts, diamonds, clubs
+    func simpleDescription() -> String {
+        switch self {
+        case .spades:
+            return "spades"
+        case .hearts:
+            return "hearts"
+        case .diamonds:
+            return "diamonds"
+        case .clubs:
+            return "clubs"
+        }
+    }
+    
+    func color() -> String {
+        switch self {
+        case .spades, .clubs:
+            return "black"
+        case .hearts, .diamonds:
+            return "red"
+        }
+    }
+}
+
+let hearts = Suit.hearts
+let heartsDescription = hearts.simpleDescription()
+let color = Suit.clubs.color()
+
+
+
 
 //: [Next](@next)
