@@ -2,8 +2,7 @@
 
 //: **EnumerationsとStructures**
 
-// Enumについて
-
+//: enum
 // "enum"というキーワードを使うことでenumを作ることができます。
 // SwiftではInt型のenumは0から自動的に1ずつインクリメントした値をアサインします。
 // 明示的に値をアサインしたい場合は、下のように指定しましょう(case ace = 1)
@@ -137,8 +136,7 @@ case let .failure(message):
 
 
 
-// Structureについて
-
+//: struct
 // "struct"というキーワードを使うことでstructureを作ることができます。
 // structureはクラスと似ていて、メソッドやイニシャライザを作ることができる
 // クラスとの大きな違いは、クラスは参照渡し：structureは値渡し
