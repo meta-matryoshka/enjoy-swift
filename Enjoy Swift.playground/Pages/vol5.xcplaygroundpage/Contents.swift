@@ -79,6 +79,9 @@ enum Suit {
     case spades, hearts, diamonds, clubs
     func simpleDescription() -> String {
         switch self {
+        // case Suit.spades:
+        // と記述しても同じ。
+        // switch selfによって、Suitであることは自明なため、省略して.spadesと記載できる
         case .spades:
             return "spades"
         case .hearts:
@@ -106,5 +109,27 @@ let color = Suit.clubs.color()
 
 
 
+
+// サーバから日の出,日の入り時刻を取得する例
+// TODO 詳細な解説(このような記述にするとなぜ良いのかメリット)を書く
+// TODO EXPERIMENTにある3つめのcaseを以下のenumに追加する
+
+enum ServerResponse {
+    case result(String, String)
+    case failure(String)
+}
+
+let success = ServerResponse.result("6:00 am", "8:09 pm")
+let failure = ServerResponse.failure("Out of cheese.")
+
+
+// ServerResponseの値をswitch文でまとめてハンドリングできるのが利点？
+switch success {
+// TODO このケース文中にある "let" って何？
+case let .result(sunrise, sunset):
+    print("Sunrise is at \(sunrise) and sunset is at \(sunset).")
+case let .failure(message):
+    print("Failure...  \(message)")
+}
 
 //: [Next](@next)
