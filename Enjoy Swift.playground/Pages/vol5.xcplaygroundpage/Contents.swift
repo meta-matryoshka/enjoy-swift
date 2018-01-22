@@ -1,8 +1,11 @@
 //: [Previous](@previous)
 
 //: **EnumerationsとStructures**
+
+// Enumについて
+
 // "enum"というキーワードを使うことでenumを作ることができます。
-// Swiftでは0から自動的に1ずつインクリメントした値をアサインします。
+// SwiftではInt型のenumは0から自動的に1ずつインクリメントした値をアサインします。
 // 明示的に値をアサインしたい場合は、下のように指定しましょう(case ace = 1)
 // (ace以降の値は1ずつインクリメント)
 // enumの値に対して共通のfuncを作ることもできる
@@ -131,5 +134,59 @@ case let .result(sunrise, sunset):
 case let .failure(message):
     print("Failure...  \(message)")
 }
+
+
+
+// Structureについて
+
+// "struct"というキーワードを使うことでstructureを作ることができます。
+// structureはクラスと似ていて、メソッドやイニシャライザを作ることができる
+// クラスとの大きな違いは、クラスは参照渡し：structureは値渡し
+
+struct StructCard {
+    var rank: Rank
+    var suit: Suit
+    func simpleDescription() -> String {
+        return "The \(rank.simpleDescription()) of \(suit.simpleDescription())"
+    }
+}
+
+class ClassCard{
+    var rank: Rank
+    var suit: Suit
+    
+    init(rank: Rank,suit: Suit) {
+        self.rank = rank
+        self.suit = suit
+    }
+    
+    func simpleDescription() -> String {
+        return "The \(rank.simpleDescription()) of \(suit.simpleDescription())"
+    }
+}
+
+// Structureの例
+var structCard = StructCard(rank: Rank.ace, suit: Suit.clubs)
+// 値渡しなので、structCardの値はコピーされる
+var changedStructCard = structCard
+changedStructCard.rank = Rank.king
+// コピーされた値を扱うのでstructCardの値は変わらず
+structCard.simpleDescription()
+changedStructCard.simpleDescription()
+
+
+// Classの例
+var classCard = ClassCard(rank: Rank.ace, suit: Suit.clubs)
+// 参照渡しなので、changedClassCardにはclassCardの参照先が入る
+var changedClassCard = classCard
+changedClassCard.rank = Rank.king
+
+// 参照先の値が変わってしまったため、classCardの値も変わる
+classCard.simpleDescription()
+changedClassCard.simpleDescription()
+
+
+// TODO : EXPERIMENT
+
 
 //: [Next](@next)
